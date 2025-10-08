@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid #545454;
+  padding: 45px 0 41px;
+}
+.header__title {
+  font-size: 2.5rem;
+  font-weight: normal;
+  margin: 0;
+}
+.header__mini-title {
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0;
+}
+@media screen and (max-width: 320px) {
+  .header {
+    padding: 28px 27px 32px;
+  }
+}

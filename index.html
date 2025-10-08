@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Around" />
+    <meta name="author" content="Pedro Henrique Melo" />
+    <meta name="keywords" content="Locais, HTML, CSS" />
+    <title>Around the U.S.</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <h1 class="header__title">Around</h1>
+        <h2 class="header__mini-title">The U.S.</h2>
+      </header>
+      <main class="content">
+        <div class="profile">
+          <img
+            class="profile__image"
+            src="./images/profile__image.png"
+            alt="Profile Picture"
+          />
+          <div class="profile__container">
+            <div class="profile__name-container">
+              <h3 class="profile__name">Jacques Cousteau</h3>
+              <button class="profile__edit-button">
+                <img
+                  class="profile__edit__image"
+                  src="./images/edit-icon.svg"
+                  alt="Editar Perfil"
+                />
+              </button>
+            </div>
+            <p class="profile__job">Explorador</p>
+          </div>
+          <button class="profile__add-button">
+            <img
+              class="profile__add__image"
+              src="./images/plus-sign.svg"
+              alt="Adicionar"
+            />
+          </button>
+          <div class="profile__modal">
+            <div class="edit-container">
+              <button class="edit-container__close">
+                <img src="./images/close-icon.png" alt="Fechar" />
+              </button>
+              <h4 class="edit-container__title">Editar perfil</h4>
+              <form class="edit-container__form">
+                <input
+                  class="edit-container__input"
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Nome"
+                /><br />
+                <input
+                  class="edit-container__input"
+                  type="text"
+                  id="job"
+                  name="job"
+                  placeholder="Profissão"
+                /><br />
+                <input
+                  class="edit-container__submit"
+                  type="submit"
+                  value="Salvar"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="elements">
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/vale.png"
+              alt="Vale Yosemite"
+            />
+            <div class="element__content">
+              <h4 class="element__name">Vale de Yosemite</h4>
+              <button class="element__button">
+                <svg
+                  class="element__like"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+           2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
+           C13.09 3.81 14.76 3 16.5 3
+           19.58 3 22 5.42 22 8.5
+           c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    fill="white"
+                    stroke="black"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/lake.png"
+              alt="Lago Louise"
+            />
+            <div class="element__content">
+              <h4 class="element__name">Lago Louise</h4>
+              <button class="element__button">
+                <svg
+                  class="element__like"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+           2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
+           C13.09 3.81 14.76 3 16.5 3
+           19.58 3 22 5.42 22 8.5
+           c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    fill="white"
+                    stroke="black"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/mountain.png"
+              alt="Montanhas Carecas"
+            />
+            <div class="element__content">
+              <h4 class="element__name">Montanhas Carecas</h4>
+              <button class="element__button">
+                <svg
+                  class="element__like"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+           2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
+           C13.09 3.81 14.76 3 16.5 3
+           19.58 3 22 5.42 22 8.5
+           c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    fill="white"
+                    stroke="black"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/latemar.png"
+              alt="Latemar"
+            />
+            <div class="element__content">
+              <h4 class="element__name">Latemar</h4>
+              <button class="element__button">
+                <svg
+                  class="element__like"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+           2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
+           C13.09 3.81 14.76 3 16.5 3
+           19.58 3 22 5.42 22 8.5
+           c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    fill="white"
+                    stroke="black"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/parque-nacional.png"
+              alt="Parque Nacional Vanoise"
+            />
+            <div class="element__content">
+              <h4 class="element__name">Parque Nacional Vanoise</h4>
+              <button class="element__button">
+                <svg
+                  class="element__like"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+           2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
+           C13.09 3.81 14.76 3 16.5 3
+           19.58 3 22 5.42 22 8.5
+           c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    fill="white"
+                    stroke="black"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/vale.png"
+              alt="Lago di Braies"
+            />
+            <div class="element__content">
+              <h4 class="element__name">Lago di Braies</h4>
+              <button class="element__button">
+                <svg
+                  class="element__like"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+           2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
+           C13.09 3.81 14.76 3 16.5 3
+           19.58 3 22 5.42 22 8.5
+           c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    fill="white"
+                    stroke="black"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <p class="footer__text">&#169; 2024 Around The U.S.</p>
+      </footer>
+    </div>
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
