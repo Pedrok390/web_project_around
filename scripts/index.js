@@ -33,29 +33,22 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
   },
 ];
-
+//Criação de Cards
 function createCard(name, link) {
   const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
   cardElement.querySelector(".element__image").src = link;
   cardElement.querySelector(".element__image").alt = name;
   cardElement.querySelector(".element__name").textContent = name;
-  cardElement.querySelector(".element__modal-image").src = link;
-  cardElement.querySelector(".element__modal-name").alt = name;
-  cardElement.querySelector(".element__modal-name").textContent = name;
+  cardElement
+    .querySelector(".element__image")
+    .addEventListener("click", function () {
+      modalElements(name, link);
+      checkModal("elements__modal");
+    });
   cardElement
     .querySelector(".element__delete")
     .addEventListener("click", function () {
       cardElement.remove();
-    });
-  cardElement
-    .querySelector(".element__image")
-    .addEventListener("click", function () {
-      checkModal("element__modal");
-    });
-  cardElement
-    .querySelector(".element__modal-close")
-    .addEventListener("click", function () {
-      checkModal("element__modal");
     });
   cardElement
     .querySelector(".element__like")
@@ -64,6 +57,7 @@ function createCard(name, link) {
     });
   cardContainer.append(cardElement);
 }
+//Inicialização dos Cards iniciais do projeto
 function initializeCards() {
   initialCards.forEach((item) => {
     createCard(item.name, item.link);
@@ -71,6 +65,7 @@ function initializeCards() {
 }
 initializeCards();
 
+//Submit Edição do Perfil
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   let nameInput = document.querySelector("#name");
@@ -86,6 +81,7 @@ function handleProfileFormSubmit(evt) {
 
 formProfile.addEventListener("submit", handleProfileFormSubmit);
 
+//Checar Modais do projeto para caso estejam visiveis ou não
 function checkModal(type) {
   const modal = document.querySelector(`.${type}`);
   const typeClass = `${type}_visibility_visible`;
@@ -105,6 +101,7 @@ closeElementButton.addEventListener("click", function () {
   checkModal("card__modal");
 });
 
+//Adição de Elementos
 function handleElementFormSubmit(evt) {
   evt.preventDefault();
   let title = document.querySelector("#title");
@@ -115,3 +112,14 @@ function handleElementFormSubmit(evt) {
   checkModal("card__modal");
 }
 formElement.addEventListener("submit", handleElementFormSubmit);
+
+function modalElements(name, link) {
+  document.querySelector(".elements__modal-image").src = link;
+  document.querySelector(".elements__modal-image").alt = name;
+  document.querySelector(".elements__modal-name").textContent = name;
+}
+document
+  .querySelector(".elements__modal-close")
+  .addEventListener("click", function () {
+    checkModal("elements__modal");
+  });
