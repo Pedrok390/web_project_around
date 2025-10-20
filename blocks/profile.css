@@ -14,10 +14,16 @@
 .profile__name {
   font-size: 42px;
   font-weight: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .profile__job {
   margin-top: 16px;
   font-size: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .profile__edit-button {
   max-width: 24px;

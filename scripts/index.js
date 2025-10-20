@@ -55,7 +55,7 @@ function createCard(name, link) {
     .addEventListener("click", function () {
       this.classList.toggle("element__like_type_liked");
     });
-  cardContainer.append(cardElement);
+  cardContainer.prepend(cardElement);
 }
 //Inicialização dos Cards iniciais do projeto
 function initializeCards() {
@@ -68,10 +68,10 @@ initializeCards();
 //Submit Edição do Perfil
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  let nameInput = document.querySelector("#name");
-  let jobInput = document.querySelector("#job");
-  let nameContainer = document.querySelector(".profile__name");
-  let jobContainer = document.querySelector(".profile__job");
+  const nameInput = document.querySelector("#name");
+  const jobInput = document.querySelector("#job");
+  const nameContainer = document.querySelector(".profile__name");
+  const jobContainer = document.querySelector(".profile__job");
 
   nameContainer.textContent = nameInput.value;
   jobContainer.textContent = jobInput.value;
@@ -87,17 +87,17 @@ function checkModal(type) {
   const typeClass = `${type}_visibility_visible`;
   modal.classList.toggle(typeClass);
 }
-editProfile.addEventListener("click", function () {
+editProfile.addEventListener("click", () => {
   checkModal("profile__modal");
 });
-closeProfileButton.addEventListener("click", function () {
+closeProfileButton.addEventListener("click", () => {
   checkModal("profile__modal");
 });
 
-addElement.addEventListener("click", function () {
+addElement.addEventListener("click", () => {
   checkModal("card__modal");
 });
-closeElementButton.addEventListener("click", function () {
+closeElementButton.addEventListener("click", () => {
   checkModal("card__modal");
 });
 

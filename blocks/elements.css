@@ -21,9 +21,11 @@
   opacity: 0.8;
 }
 .element__image {
-  width: -webkit-fill-available;
+  width: 282px;
   height: 282px;
   border-radius: 10px 10px 0 0;
+  object-fit: cover;
+  max-width: 100%;
 }
 .element__content {
   padding: 25px 21px;
