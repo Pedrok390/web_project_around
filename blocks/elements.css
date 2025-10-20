@@ -2,16 +2,28 @@
   margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   column-gap: 17px;
   row-gap: 20px;
 }
 .element {
   max-width: 282px;
   line-height: 0;
+  position: relative;
+}
+.element__delete {
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+}
+.element__delete:hover {
+  opacity: 0.8;
 }
 .element__image {
   width: -webkit-fill-available;
+  height: 282px;
+  border-radius: 10px 10px 0 0;
 }
 .element__content {
   padding: 25px 21px;
@@ -41,8 +53,41 @@
 .element__button:hover {
   opacity: 0.6;
 }
-.element__button:active + .element__like {
+.element__like_type_liked path {
   fill: black;
+}
+.element__modal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(000, 000, 000, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  z-index: 1;
+}
+.element__modal-container {
+  position: relative;
+}
+.element__modal-image {
+  width: 75vw;
+  height: 75vh;
+}
+.element__modal-name {
+  margin-top: 10px;
+}
+.element__modal-close {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background-color: transparent;
+  border: 0;
+}
+.element__modal_visibility_visible {
+  visibility: visible;
 }
 @media screen and (min-width: 540px) and (max-width: 768px) {
   .elements {
