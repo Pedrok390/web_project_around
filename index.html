@@ -25,7 +25,7 @@
           <div class="profile__container">
             <div class="profile__name-container">
               <h3 class="profile__name">Jacques Cousteau</h3>
-              <button class="profile__edit-button">
+              <button class="profile__edit-button" id="profile__button">
                 <img
                   class="profile__edit-image"
                   src="./images/edit-icon.svg"
@@ -35,65 +35,87 @@
             </div>
             <p class="profile__job">Explorador</p>
           </div>
-          <button class="profile__add-button">
+          <button class="profile__add-button" id="card__button">
             <img
               class="profile__add-image"
               src="./images/plus-sign.svg"
               alt="Adicionar"
             />
           </button>
-          <div class="profile__modal">
-            <div class="edit-container">
-              <button class="edit-container__close">
+          <div class="popup" id="profile">
+            <div class="popup__container">
+              <button class="popup__close">
                 <img src="./images/close-icon.png" alt="Fechar" />
               </button>
-              <h4 class="edit-container__title">Editar perfil</h4>
-              <form class="edit-container__form">
+              <h4 class="popup__title">Editar perfil</h4>
+              <form class="popup__form" novalidate>
+                <div class="form__container">
+                  <input
+                    class="form__input"
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Nome"
+                    required
+                    minlength="2"
+                    maxlength="40"
+                  /><br />
+                  <span class="form__input-error name-error"></span>
+                </div>
+                <div class="form__container">
+                  <input
+                    class="form__input"
+                    type="text"
+                    id="job"
+                    name="job"
+                    placeholder="Profissão"
+                    required
+                    minlength="2"
+                    maxlength="200"
+                  /><br />
+                  <span class="form__input-error job-error"></span>
+                </div>
                 <input
-                  class="edit-container__input"
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Nome"
-                /><br />
-                <input
-                  class="edit-container__input"
-                  type="text"
-                  id="job"
-                  name="job"
-                  placeholder="Profissão"
-                /><br />
-                <input
-                  class="edit-container__submit"
+                  class="form__submit button_inactive"
                   type="submit"
                   value="Salvar"
                 />
               </form>
             </div>
           </div>
-          <div class="card__modal">
-            <div class="add-container">
-              <button class="add-container__close">
+          <div class="popup" id="card">
+            <div class="popup__container">
+              <button class="popup__close">
                 <img src="./images/close-icon.png" alt="Fechar" />
               </button>
-              <h4 class="add-container__title">Novo Local</h4>
-              <form class="add-container__form">
+              <h4 class="popup__title">Novo Local</h4>
+              <form class="popup__form" novalidate>
+                <div class="form__container">
+                  <input
+                    class="form__input"
+                    type="text"
+                    id="title"
+                    name="title"
+                    placeholder="Título"
+                    required
+                    minlength="2"
+                    maxlength="30"
+                  /><br />
+                  <span class="form__input-error title-error"></span>
+                </div>
+                <div class="form__container">
+                  <input
+                    class="form__input"
+                    type="url"
+                    id="link"
+                    name="link"
+                    placeholder="Link da Imagem"
+                    required
+                  /><br />
+                  <span class="form__input-error link-error"></span>
+                </div>
                 <input
-                  class="add-container__input"
-                  type="text"
-                  id="title"
-                  name="title"
-                  placeholder="Título"
-                /><br />
-                <input
-                  class="add-container__input"
-                  type="text"
-                  id="link"
-                  name="link"
-                  placeholder="Link da Imagem"
-                /><br />
-                <input
-                  class="add-container__submit"
+                  class="form__submit button_inactive"
                   type="submit"
                   value="Criar"
                 />
@@ -152,5 +174,6 @@
       </div>
     </template>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

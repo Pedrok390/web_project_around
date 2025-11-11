@@ -1,9 +1,9 @@
 let editProfile = document.querySelector(".profile__edit-button");
 let addElement = document.querySelector(".profile__add-button");
-let closeElementButton = document.querySelector(".add-container__close");
-let closeProfileButton = document.querySelector(".edit-container__close");
-let formElement = document.querySelector(".add-container__form");
-let formProfile = document.querySelector(".edit-container__form");
+let profile = document.querySelector("#profile");
+let card = document.querySelector("#card");
+let closeElementButton = card.querySelector(".popup__close");
+let closeProfileButton = profile.querySelector(".popup__close");
 let cardContainer = document.querySelector(".elements");
 const cardTemplate = document.querySelector("#card-template").content;
 
@@ -43,7 +43,8 @@ function createCard(name, link) {
     .querySelector(".element__image")
     .addEventListener("click", function () {
       modalElements(name, link);
-      checkModal("elements__modal");
+      const modal = document.querySelector(".elements__modal");
+      checkPopup(modal);
     });
   cardElement
     .querySelector(".element__delete")
@@ -66,8 +67,7 @@ function initializeCards() {
 initializeCards();
 
 //Submit Edição do Perfil
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
+function handleProfileFormSubmit() {
   const nameInput = document.querySelector("#name");
   const jobInput = document.querySelector("#job");
   const nameContainer = document.querySelector(".profile__name");
@@ -76,42 +76,52 @@ function handleProfileFormSubmit(evt) {
   nameContainer.textContent = nameInput.value;
   jobContainer.textContent = jobInput.value;
 
-  checkModal("profile__modal");
+  checkPopup("profile__modal");
 }
 
-formProfile.addEventListener("submit", handleProfileFormSubmit);
+profile.addEventListener("submit", handleProfileFormSubmit);
 
 //Checar Modais do projeto para caso estejam visiveis ou não
-function checkModal(type) {
-  const modal = document.querySelector(`.${type}`);
-  const typeClass = `${type}_visibility_visible`;
-  modal.classList.toggle(typeClass);
+function checkPopup(type) {
+  const modal = type;
+  modal.classList.toggle("popup_visibility_visible");
 }
-editProfile.addEventListener("click", () => {
-  checkModal("profile__modal");
-});
-closeProfileButton.addEventListener("click", () => {
-  checkModal("profile__modal");
-});
 
-addElement.addEventListener("click", () => {
-  checkModal("card__modal");
-});
-closeElementButton.addEventListener("click", () => {
-  checkModal("card__modal");
-});
+function popupHandler() {
+  const popupList = document.querySelectorAll(".popup");
+  popupList.forEach((item) => {
+    item.addEventListener("click", (evt) => {
+      if (evt.target.classList.contains("popup")) {
+        checkPopup(item);
+      }
+    });
+    item.addEventListener("keydown", (evt) => {
+      if (evt.key === "Escape") {
+        checkPopup(item);
+      }
+    });
+    const buttonOpen = document.querySelector(`#${item.id}__button`);
+    buttonOpen.addEventListener("click", () => {
+      checkPopup(item);
+    });
+    const buttonClose = item.querySelector(".popup__close");
+    buttonClose.addEventListener("click", () => {
+      checkPopup(item);
+    });
+  });
+}
+popupHandler();
 
 //Adição de Elementos
-function handleElementFormSubmit(evt) {
-  evt.preventDefault();
+function handleElementFormSubmit() {
   let title = document.querySelector("#title");
   let link = document.querySelector("#link");
 
   createCard(title.value, link.value);
 
-  checkModal("card__modal");
+  checkPopup("card");
 }
-formElement.addEventListener("submit", handleElementFormSubmit);
+card.addEventListener("submit", handleElementFormSubmit);
 
 function modalElements(name, link) {
   document.querySelector(".elements__modal-image").src = link;
@@ -121,5 +131,5 @@ function modalElements(name, link) {
 document
   .querySelector(".elements__modal-close")
   .addEventListener("click", function () {
-    checkModal("elements__modal");
+    checkPopup(document.querySelector(".elements__modal"));
   });
