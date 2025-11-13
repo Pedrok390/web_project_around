@@ -1,11 +1,15 @@
-let editProfile = document.querySelector(".profile__edit-button");
-let addElement = document.querySelector(".profile__add-button");
-let profile = document.querySelector("#profile");
-let card = document.querySelector("#card");
-let closeElementButton = card.querySelector(".popup__close");
-let closeProfileButton = profile.querySelector(".popup__close");
-let cardContainer = document.querySelector(".elements");
+const editProfile = document.querySelector(".profile__edit-button");
+const addElement = document.querySelector(".profile__add-button");
+const profile = document.querySelector("#profile");
+const card = document.querySelector("#card");
+const closeElementButton = card.querySelector(".popup__close");
+const closeProfileButton = profile.querySelector(".popup__close");
+const cardContainer = document.querySelector(".elements");
 const cardTemplate = document.querySelector("#card-template").content;
+let popupTemplate;
+const elementsModal = document
+  .querySelector(".elements")
+  .querySelector(".popup");
 
 const initialCards = [
   {
@@ -43,8 +47,7 @@ function createCard(name, link) {
     .querySelector(".element__image")
     .addEventListener("click", function () {
       modalElements(name, link);
-      const modal = document.querySelector(".elements__modal");
-      checkPopup(modal);
+      checkPopup(elementsModal);
     });
   cardElement
     .querySelector(".element__delete")
@@ -76,7 +79,7 @@ function handleProfileFormSubmit() {
   nameContainer.textContent = nameInput.value;
   jobContainer.textContent = jobInput.value;
 
-  checkPopup("profile__modal");
+  checkPopup(profile);
 }
 
 profile.addEventListener("submit", handleProfileFormSubmit);
@@ -85,29 +88,39 @@ profile.addEventListener("submit", handleProfileFormSubmit);
 function checkPopup(type) {
   const modal = type;
   modal.classList.toggle("popup_visibility_visible");
+  const buttonClose = modal.querySelector(".popup__close");
+  if (modal.classList.contains("popup_visibility_visible")) {
+    popupTemplate = modal;
+    buttonClose.addEventListener("click", popupClose);
+    modal.addEventListener("click", popupClose);
+    window.addEventListener("keydown", popupClose);
+  } else {
+    buttonClose.removeEventListener("click", popupClose);
+    modal.removeEventListener("click", popupClose);
+    window.removeEventListener("keydown", popupClose);
+  }
 }
 
+function popupClose(evt) {
+  if (!evt.target.classList.contains("popup")) {
+    checkPopup(popupTemplate);
+  }
+  if (evt.key === "Escape") {
+    checkPopup(popupTemplate);
+  }
+  checkPopup(popupTemplate);
+}
 function popupHandler() {
   const popupList = document.querySelectorAll(".popup");
   popupList.forEach((item) => {
-    item.addEventListener("click", (evt) => {
-      if (evt.target.classList.contains("popup")) {
+    if (item.id !== "") {
+      const buttonOpen = document.querySelector(`#${item.id}__button`);
+      console.log(item);
+      console.log(item.id);
+      buttonOpen.addEventListener("click", () => {
         checkPopup(item);
-      }
-    });
-    item.addEventListener("keydown", (evt) => {
-      if (evt.key === "Escape") {
-        checkPopup(item);
-      }
-    });
-    const buttonOpen = document.querySelector(`#${item.id}__button`);
-    buttonOpen.addEventListener("click", () => {
-      checkPopup(item);
-    });
-    const buttonClose = item.querySelector(".popup__close");
-    buttonClose.addEventListener("click", () => {
-      checkPopup(item);
-    });
+      });
+    }
   });
 }
 popupHandler();
@@ -119,17 +132,12 @@ function handleElementFormSubmit() {
 
   createCard(title.value, link.value);
 
-  checkPopup("card");
+  checkPopup(card);
 }
 card.addEventListener("submit", handleElementFormSubmit);
 
 function modalElements(name, link) {
-  document.querySelector(".elements__modal-image").src = link;
-  document.querySelector(".elements__modal-image").alt = name;
-  document.querySelector(".elements__modal-name").textContent = name;
+  document.querySelector(".popup__image").src = link;
+  document.querySelector(".popup__image").alt = name;
+  document.querySelector(".popup__name").textContent = name;
 }
-document
-  .querySelector(".elements__modal-close")
-  .addEventListener("click", function () {
-    checkPopup(document.querySelector(".elements__modal"));
-  });

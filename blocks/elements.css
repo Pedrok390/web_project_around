@@ -71,17 +71,17 @@
   visibility: hidden;
   z-index: 1;
 }
-.elements__modal-container {
+.popup__element {
   position: relative;
 }
-.elements__modal-image {
+.popup__image {
   width: 75vw;
   height: 75vh;
 }
-.elements__modal-name {
+.popup__name {
   margin-top: 10px;
 }
-.elements__modal-close {
+.popup__close {
   position: absolute;
   top: -40px;
   right: -40px;
