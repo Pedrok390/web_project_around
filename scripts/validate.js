@@ -1,4 +1,4 @@
-function showInputError(formElement, inputElement, errorMessage) {
+/*function showInputError(formElement, inputElement, errorMessage) {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add("form__input_type_error");
   errorElement.textContent = errorMessage;
@@ -30,7 +30,6 @@ function setEventListeners(formElement) {
   const inputList = Array.from(formElement.querySelectorAll(".form__input"));
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
-      console.log("aaaa");
       checkInputValidity(formElement, inputElement);
       toggleButtonState(inputList, formElement.querySelector(".form__submit"));
     });
@@ -54,4 +53,4 @@ const toggleButtonState = (inputList, buttonElement) => {
   } else {
     buttonElement.classList.remove("button_inactive");
   }
-};
+};*/
