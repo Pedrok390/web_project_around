@@ -72,7 +72,10 @@ function handleElementFormSubmit() {
   let title = document.querySelector("#title");
   let link = document.querySelector("#link");
 
-  createCard(title.value, link.value);
+  const card = new Card([title.value, link.value], "#card-template");
+  const cardElement = card.generateCard();
+
+  cardContainer.prepend(cardElement);
 
   checkPopup(card);
 }
