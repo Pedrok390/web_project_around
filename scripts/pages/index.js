@@ -18,8 +18,15 @@ import {
 } from "../constants.js/constants.js";
 
 //Criação de Cards
+const imagePopup = new PopupWithImage(".popup_type_image");
+imagePopup.setEventListeners();
+
+const handleCardClick = (name, link) => {
+  imagePopup.open(name, link);
+};
+
 const createCard = (data) => {
-  const card = new Card(data, "#card-template");
+  const card = new Card(data, "#card-template", handleCardClick);
   const cardElement = card.generateCard();
   cardSection.addItem(cardElement);
 };
@@ -30,12 +37,6 @@ const cardSection = new Section(
 );
 
 cardSection.renderItems();
-const imagePopup = new PopupWithImage(".popup_type_image");
-imagePopup.setEventListeners();
-
-const handleCardClick = (name, link) => {
-  imagePopup.open(name, link);
-};
 
 const formList = document.querySelectorAll(config.formSelector);
 formList.forEach((item) => {
