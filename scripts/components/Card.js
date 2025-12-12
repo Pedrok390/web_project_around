@@ -60,7 +60,7 @@ class Card {
     this._element
       .querySelector(".element__image")
       .addEventListener("click", () => {
-        this._handleOpenPopup();
+        this.handleCardClick(this._name, this._link);
       });
     this._element
       .querySelector(".element__delete")
