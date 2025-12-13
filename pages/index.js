@@ -1,21 +1,21 @@
-import { Card } from "../components/Card.js";
+import { Card } from "../scripts/components/Card.js";
 import {
   popupClose,
   handleOpenForm,
   handleCloseForm,
   popupHandler,
-} from "../constants.js/utils.js";
+} from "../scripts/constants/utils.js";
 
-import { FormValidator, config } from "../components/FormValidator.js";
-import Section from "../components/Section.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import PopupWithImage from "../components/PopupWithImage.js";
+import { FormValidator, config } from "../scripts/components/FormValidator.js";
+import Section from "../scripts/components/Section.js";
+import PopupWithForm from "../scripts/components/PopupWithForm.js";
+import PopupWithImage from "../scripts/components/PopupWithImage.js";
 import {
   profile,
   card,
   cardContainer,
   initialCards,
-} from "../constants.js/constants.js";
+} from "../scripts/constants/constants.js";
 
 //Criação de Cards
 const imagePopup = new PopupWithImage(".popup_type_image");
@@ -60,8 +60,8 @@ popupHandler();
 
 //Adição de Elementos
 function handleElementFormSubmit() {
-  let title = document.querySelector("#title");
-  let link = document.querySelector("#link");
+  const title = document.querySelector("#title");
+  const link = document.querySelector("#link");
 
   const card = new Card([title.value, link.value], "#card-template");
   const cardElement = card.generateCard();
