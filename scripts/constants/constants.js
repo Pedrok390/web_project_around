@@ -1,6 +1,9 @@
 export const profile = document.querySelector("#profile");
 export const card = document.querySelector("#card");
 export const cardContainer = document.querySelector(".elements");
+export const nameContainer = document.querySelector(".profile__name");
+export const jobContainer = document.querySelector(".profile__job");
+/*
 export const initialCards = [
   {
     name: "Vale de Yosemite",
@@ -27,3 +30,5 @@ export const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
   },
 ];
+*/
+

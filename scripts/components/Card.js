@@ -13,6 +13,7 @@ class Card {
     this._link = data.link;
     this._selector = selector;
     this.handleCardClick = handleCardClick;
+    this._id = data._id;
   }
   _getTemplate() {
     const cardElement = document
@@ -58,14 +59,11 @@ class Card {
         this.handleCardClick(this._name, this._link);
       });
     this._element
-      .querySelector(".element__delete")
-      .addEventListener("click", () => {
-        this._element.remove();
-      });
-    this._element
       .querySelector(".element__like")
       .addEventListener("click", () => {
-        this.classList.toggle("element__like_type_liked");
+        this._element
+          .querySelector(".element__like_icon")
+          .classList.toggle("element__like_type_liked");
       });
   }
 }

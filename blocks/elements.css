@@ -55,7 +55,7 @@
 .element__button:hover {
   opacity: 0.6;
 }
-.element__like_type_liked path {
+.element__like_type_liked {
   fill: black;
 }
 .elements__modal {
@@ -87,6 +87,15 @@
   right: -40px;
   background-color: transparent;
   border: 0;
+}
+.popup__delete {
+  width: 100%;
+  padding: 13px;
+  border: 0;
+  background-color: #000000;
+  color: white;
+  border-radius: 2px;
+  margin-top: 48px;
 }
 .elements__modal_visibility_visible {
   visibility: visible;

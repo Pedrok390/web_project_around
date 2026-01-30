@@ -1,4 +1,4 @@
-class UserInfo {
+export default class UserInfo {
   constructor({ name, job }) {
     this._nameContainer = document.querySelector(name);
     this._jobContainer = document.querySelector(job);
@@ -11,6 +11,8 @@ class UserInfo {
   }
   setUserInfo({ name, job }) {
     this._nameContainer.textContent = name;
-    this._nameContainer.textContent = job;
+    this._jobContainer.textContent = job;
   }
 }
+
+export { UserInfo };

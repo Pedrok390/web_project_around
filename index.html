@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -24,7 +24,7 @@
           />
           <div class="profile__container">
             <div class="profile__name-container">
-              <h3 class="profile__name">Jacques Cousteau</h3>
+              <h3 class="profile__name"></h3>
               <button class="profile__edit-button" id="profile__button">
                 <img
                   class="profile__edit-image"
@@ -33,7 +33,7 @@
                 />
               </button>
             </div>
-            <p class="profile__job">Explorador</p>
+            <p class="profile__job"></p>
           </div>
           <button class="profile__add-button" id="card__button">
             <img
@@ -145,6 +145,21 @@
               <p class="popup__name"></p>
             </div>
           </div>
+          <div class="popup popup_type_delete">
+            <div class="popup__container">
+              <button class="popup__close">
+                <img
+                  class="popup__close-image"
+                  src="./images/close-icon.png"
+                  alt="Fechar"
+                />
+              </button>
+              <h4 class="popup__title">Tem certeza?</h4>
+              <form class="popup__form">
+                <button class="popup__delete">Sim</button>
+              </form>
+            </div>
+          </div>
         </div>
       </main>
       <footer class="footer">
@@ -172,6 +187,7 @@
               height="24"
             >
               <path
+                class="element__like_icon"
                 d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
            2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
            C13.09 3.81 14.76 3 16.5 3
@@ -185,6 +201,6 @@
         </div>
       </div>
     </template>
-    <script type="module" src="../scripts/pages/index.js"></script>
+    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>
