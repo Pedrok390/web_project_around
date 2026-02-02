@@ -77,6 +77,8 @@ const createCard = (data) => {
   const isOwner = data.owner === currentUser._id;
   const cardElement = card.generateCard();
   const deleteButton = cardElement.querySelector(".element__delete");
+  const likeIcon = cardElement.querySelector(".element__like_icon");
+
 
   cardsList.push(cardElement);
   deleteButton.addEventListener("click", () => {
@@ -88,6 +90,26 @@ const createCard = (data) => {
   } else {
     deleteButton.style.display = "none";
   }
+
+  if(data.isLiked){
+    likeIcon.classList.add("element__like_type_liked");
+  }
+  likeIcon.addEventListener("click", ()=> {
+    if(data.isLiked){
+      api.unlikeCard({id: data._id})
+        .then((updateLike) => {
+          data.isLiked = updateLike.isLiked;
+          likeIcon.classList.remove("element__like_type_liked");
+        })
+    }
+    else{
+      api.likeCard({id: data._id})
+        .then((updateLike) => {
+          data.isLiked = updateLike.isLiked;
+          likeIcon.classList.add("element__like_type_liked");
+        })
+    }
+  })
   cardSection.addItem(cardElement);
 };
 
